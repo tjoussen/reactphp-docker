@@ -60,7 +60,7 @@ class FunctionalClientTest extends TestCase
         $container = Block\await($promise, $this->loop);
 
         $this->assertNotNull($container['Id']);
-        $this->assertNull($container['Warnings']);
+        $this->assertEmpty($container['Warnings']);
 
         $start = microtime(true);
 
@@ -108,7 +108,7 @@ class FunctionalClientTest extends TestCase
         $container = Block\await($promise, $this->loop);
 
         $this->assertNotNull($container['Id']);
-        $this->assertNull($container['Warnings']);
+        $this->assertEmpty($container['Warnings']);
 
         $promise = $this->client->containerStart($container['Id']);
         $ret = Block\await($promise, $this->loop);
